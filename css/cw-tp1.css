@@ -10,3 +10,20 @@
 .border-orange{
     border: solid darkorange 2px;
 }
+
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+
+}
+.row.header{
+    border: solid black 2px;
+}
+.row div{
+    width: 50%;
+}
+
+.left{
+    border-right: solid black 1px;
+}

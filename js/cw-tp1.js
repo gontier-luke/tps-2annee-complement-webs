@@ -20,36 +20,30 @@ document.addEventListener( 'readystatechange', ()=> {
 
             function f(S_PRECEDENT_CLASS    ) {
                 let I_TEMPERATURE = A_TEMPERATURE[I_INDEX_TEMPERATURE];
-                O_CONTENEUR.innerText = I_TEMPERATURE ;
+
 
                 let S_NEW_CLASS = 'border-';
-                let O_MESSAGE = document.getElementById('message');
+                let S_MESSAGE;
                 switch (true) {
                     case (-10 <= I_TEMPERATURE && I_TEMPERATURE <= 0):
-                        O_MESSAGE.innerText = 'Brrrrrrr, un peu froid ce matin, mets ta cagoule !' ;
+                        S_MESSAGE = 'Brrrrrrr, un peu froid ce matin, mets ta cagoule !' ;
                         S_NEW_CLASS += 'blue';
                         break;
                     case (0 < I_TEMPERATURE && I_TEMPERATURE <= 20):
-                        O_MESSAGE.innerText = '';
+                        S_MESSAGE = '';
                         S_NEW_CLASS += 'green';
                         break;
                     case (20 < I_TEMPERATURE && I_TEMPERATURE <= 30):
-                        O_MESSAGE.innerText = '';
+                        S_MESSAGE = '';
                         S_NEW_CLASS += 'orange';
                         break;
                     case (30 < I_TEMPERATURE && I_TEMPERATURE <= 40):
-                        O_MESSAGE.innerText = 'Caliente ! Vamos a la playa, ho hoho hoho !!';
+                        S_MESSAGE = 'Caliente ! Vamos a la playa, ho hoho hoho !!';
                         S_NEW_CLASS += 'red';
                         break;
                 }
-                console.log(O_MESSAGE.innerText);
-                if (S_PRECEDENT_CLASS[0] != ''){
-                    O_CONTENEUR.classList.remove(S_PRECEDENT_CLASS[0]);
-                    O_CONTENEUR.classList.add(S_NEW_CLASS);
-                }else {
-                    O_CONTENEUR.classList.add(S_NEW_CLASS);
-                }
-                S_PRECEDENT_CLASS = S_NEW_CLASS;
+                O_CONTENEUR.innerHTML += '<div class="row '+S_NEW_CLASS+'"><div class="left">'+I_TEMPERATURE+'C°</div><div>'+S_MESSAGE+'</div></div>'
+                    S_PRECEDENT_CLASS = S_NEW_CLASS;
 
                 if (I_INDEX_TEMPERATURE != A_TEMPERATURE.length-1)
                 setTimeout(f, 2000, [S_PRECEDENT_CLASS,++I_INDEX_TEMPERATURE]);
