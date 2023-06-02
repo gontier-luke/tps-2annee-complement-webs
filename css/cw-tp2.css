@@ -1,0 +1,49 @@
+body,html{
+    margin: 0;
+    width: 100%;
+}
+#historique{
+    overflow: scroll;
+    height: 200px;
+}
+
+.hidden{
+    display: none;
+}
+
+.onglet{
+    color: #0066ff;
+}
+.onglet.active{
+     color: unset;
+     text-decoration: none;
+}
+
+.conteneur{
+    display: none;
+}
+.conteneur.active{
+    display: block;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+h1{
+    text-align: center;
+}
+div[role='navigation']{
+    margin-top: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    background-color: black;
+}
+div[role='navigation'] div{
+    text-align: center;
+    width: 49%;
+    background-color: #ea9a04;
+}
+.conteneur>div{
+    width: 100%;
+}
